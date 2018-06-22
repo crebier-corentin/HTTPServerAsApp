@@ -1,1 +1,1 @@
-# HTTPServerManager
+# HTTPServerAsApp
