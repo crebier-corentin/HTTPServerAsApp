@@ -4,13 +4,16 @@
 #include <QObject>
 
 /*
-Contains the config in
+Contains the config in HTTPServerAsAppConfig.json
 */
 class Config : public QObject
 {
     Q_OBJECT
+
+     static Config* instance;
 public:
     explicit Config(QObject *parent = nullptr);
+    static Config* getInstance();
 
 signals:
 
