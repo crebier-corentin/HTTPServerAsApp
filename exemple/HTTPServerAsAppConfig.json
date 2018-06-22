@@ -1,0 +1,5 @@
+{  
+   "name":"exemple",
+   "port":0,
+   "command":"node server.js"
+}

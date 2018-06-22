@@ -25,7 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    config.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    config.h
+
+DISTFILES += \
+    exemple/server.js \
+    exemple/HTTPServerAsAppConfig.json
