@@ -25,11 +25,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
     config.cpp
 
 HEADERS += \
-        mainwindow.h \
     config.h
 
 DISTFILES += \
