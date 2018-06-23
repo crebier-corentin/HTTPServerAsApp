@@ -7,6 +7,12 @@
 #include <QSystemTrayIcon>
 #include <QMenu>
 #include <QObject>
+#include <QTcpServer>
+#include <QProcess>
+#include <QDesktopServices>
+#include <QUrl>
+#include <QFile>
+#include <QDebug>
 
 class Manager : public QObject
 {
@@ -14,6 +20,15 @@ class Manager : public QObject
 
     QSystemTrayIcon trayIcon;
     QMenu menu;
+    QProcess proccess;
+
+    int port;
+
+    //If port is 0 generate open port
+    //Else use port specified
+    int getOpenPort();
+
+    void startServer();
 
 public:
     explicit Manager(QObject *parent = nullptr);

@@ -58,7 +58,11 @@ void Config::loadConfigFile()
     //Copy data from file to object
     name = doc["name"].toString();
     port = doc["port"].toDouble();
-    command = doc["command"].toString();
+
+    //Program and args
+    QStringList str = doc["command"].toString().split(QRegExp("\\s+"));
+    program = str.takeFirst();
+    args = str;
 
 }
 

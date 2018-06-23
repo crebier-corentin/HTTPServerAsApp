@@ -24,7 +24,8 @@ public:
 
     QString name;
     int port;
-    QString command;
+    QString program;
+    QStringList args;
 
 signals:
 
