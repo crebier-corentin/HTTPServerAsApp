@@ -10,6 +10,8 @@ int main(int argc, char *argv[])
 
     MainWindow w;
 
+    Config c;
+
     Config::getInstance();
 
     return a.exec();

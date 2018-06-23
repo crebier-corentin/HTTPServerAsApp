@@ -1,22 +1,29 @@
 #include "config.h"
-#include <iostream>
 
 Config* Config::instance = nullptr;
 
-Config::Config(QObject *parent) : QObject(parent)
+Config::Config(QObject* parent) : QObject(parent)
 {
-    Config::instance = this;
+
+    //Check if instance exist
+    if (Config::instance) {
+        throw std::logic_error("Instance of Config already created");
+    }
+
+    else {
+        Config::instance = this;
+    }
 }
 
 Config* Config::getInstance()
 {
-    if(Config::instance) {
+    //Check if instance exist
+    if (Config::instance) {
 
         return Config::instance;
     }
 
     else {
-        std::cerr << "No instance of Config created";
-        std::abort();
+        throw std::logic_error("No instance of Config created");
     }
 }
