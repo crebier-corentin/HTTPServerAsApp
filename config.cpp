@@ -33,7 +33,6 @@ Config* Config::getInstance()
     }
 }
 
-
 void Config::loadConfigFile()
 {
     //Check if file exist
@@ -61,7 +60,6 @@ void Config::loadConfigFile()
     port = doc["port"].toDouble();
     command = doc["command"].toString();
 
-    emit loaded();
 }
 
 void Config::verifyConfigFile(QJsonDocument doc)

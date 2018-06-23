@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    config.cpp
+    config.cpp \
+    manager.cpp
 
 HEADERS += \
-    config.h
+    config.h \
+    manager.h
 
 DISTFILES += \
     exemple/server.js \

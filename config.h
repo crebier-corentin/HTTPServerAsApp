@@ -27,7 +27,6 @@ public:
     QString command;
 
 signals:
-    void loaded();
 
 public slots:
 };

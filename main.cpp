@@ -1,4 +1,5 @@
 #include "config.h"
+#include "manager.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -8,6 +9,9 @@ int main(int argc, char *argv[])
     a.setQuitOnLastWindowClosed(false);
 
     Config c;
+    a.setApplicationDisplayName(c.name);
+
+    Manager m;
 
     return a.exec();
 }
