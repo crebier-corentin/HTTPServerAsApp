@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QMessageBox>
+#include <QApplication>
 
 class ErrorLogger : public QObject
 {

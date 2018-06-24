@@ -1,5 +1,5 @@
 {
-   "name":"exemple",
+   "name":"example",
    "port":0,
    "command":"node server.js",
    "icon": "SP_FileIcon"

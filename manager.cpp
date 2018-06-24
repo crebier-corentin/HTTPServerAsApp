@@ -68,4 +68,9 @@ void Manager::startServer()
         qDebug() << arg;
     });
 
+    //Stop proccess when app close
+    connect(qApp, &QApplication::aboutToQuit, [=]() {
+        proccess.close();
+    });
+
 }

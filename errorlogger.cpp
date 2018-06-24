@@ -1,7 +1,5 @@
 #include "errorlogger.h"
 
-
-
 void ErrorLogger::logAndExit(QString error)
 {
 #ifdef DEV
