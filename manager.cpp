@@ -1,7 +1,7 @@
 #include "manager.h"
 
 
-Manager::Manager(QObject *parent) : QObject(parent),  trayIcon(qApp->style()->standardIcon(QStyle::SP_FileIcon), this), proccess(this),
+Manager::Manager(QObject *parent) : QObject(parent),  trayIcon(Config::getInstance()->icon, this), proccess(this),
     port(getOpenPort())
 {
     trayIcon.setToolTip(Config::getInstance()->name);

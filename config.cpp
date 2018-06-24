@@ -62,13 +62,32 @@ void Config::loadConfigFile()
     program = str.takeFirst();
     args = str;
 
+    QString iconStr = doc["icon"].toString();
+
+    //Icon
+    //If starts with SP_ use style icon
+    if(iconStr.startsWith("SP_")) {
+        //QString to Enum
+        auto enumValue = QMetaEnum::fromType<QStyle::StandardPixmap>().keysToValue(iconStr.toStdString().c_str());
+        icon = qApp->style()->standardIcon(static_cast<QStyle::StandardPixmap>(enumValue));
+
+    }
+    else {
+        icon = QIcon(iconStr);
+    }
+
+    //Check if icon is valid
+    if(icon.isNull()) {
+         ErrorLogger::getInstance()->logAndExit("Icon not found");
+    }
+
 }
 
 void Config::verifyConfigFile(QJsonDocument doc)
 {
 
     if(!doc.isObject()) {
-        ErrorLogger::getInstance()->logAndExit("Wrong format : Is not object (HTTPServerAsAppConfig.json)");
+        ErrorLogger::getInstance()->logAndExit("Wrong format, is not an object (HTTPServerAsAppConfig.json)");
     }
 
     if(!doc["name"].isString()) {
@@ -81,5 +100,9 @@ void Config::verifyConfigFile(QJsonDocument doc)
 
     if(!doc["command"].isString()) {
         ErrorLogger::getInstance()->logAndExit("Missing command (HTTPServerAsAppConfig.json)");
+    }
+
+    if(!doc["icon"].isString()) {
+        ErrorLogger::getInstance()->logAndExit("Missing icon (HTTPServerAsAppConfig.json)");
     }
 }

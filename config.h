@@ -3,10 +3,14 @@
 
 #include "errorlogger.h"
 
+#include <QApplication>
+#include <QStyle>
 #include <QObject>
 #include <QFile>
 #include <QDir>
 #include <QJsonDocument>
+#include <QMetaEnum>
+#include <QIcon>
 #include <QDebug>
 
 
@@ -29,6 +33,8 @@ public:
     int port;
     QString program;
     QStringList args;
+
+    QIcon icon;
 
 signals:
 
