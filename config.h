@@ -1,11 +1,14 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
+#include "errorlogger.h"
+
 #include <QObject>
 #include <QFile>
 #include <QDir>
 #include <QJsonDocument>
 #include <QDebug>
+
 
 /*
 Contains the config in HTTPServerAsAppConfig.json

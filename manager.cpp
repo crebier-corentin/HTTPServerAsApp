@@ -28,7 +28,7 @@ Manager::Manager(QObject *parent) : QObject(parent),  trayIcon(qApp->style()->st
     //Show the menu when clicked
     connect(&trayIcon, &QSystemTrayIcon::activated, [=](QSystemTrayIcon::ActivationReason reason) {
         if(reason == QSystemTrayIcon::Trigger) {
-            menu.show();
+            menu.exec(QCursor::pos());
         }
     });
 

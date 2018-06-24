@@ -8,7 +8,6 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets network
 
-TARGET = HTTPServerManager
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -26,12 +25,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
     config.cpp \
-    manager.cpp
+    manager.cpp \
+    errorlogger.cpp
 
 HEADERS += \
     config.h \
-    manager.h
+    manager.h \
+    errorlogger.h
 
 DISTFILES += \
     exemple/server.js \
     exemple/HTTPServerAsAppConfig.json
+
+#Use "CONFIG+=DEV" to enable DEV
+DEV {
+TARGET = HTTPServerManagerDev
+DEFINES += DEV
+}
+else {
+  TARGET = HTTPServerManager
+}

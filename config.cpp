@@ -1,7 +1,5 @@
 #include "config.h"
 
-
-
 Config* Config::instance = nullptr;
 
 Config::Config(QObject* parent) : QObject(parent)
@@ -39,7 +37,7 @@ void Config::loadConfigFile()
     QFile file("HTTPServerAsAppConfig.json");
 
     if(!file.exists()) {
-        throw std::runtime_error("Cannot find HTTPServerAsAppConfig.json");
+        ErrorLogger::getInstance()->logAndExit("Cannot find HTTPServerAsAppConfig.json");
     }
 
     //Parse Json
@@ -49,7 +47,7 @@ void Config::loadConfigFile()
 
     auto doc = QJsonDocument::fromJson(file.readAll(), &docError);
     if(doc.isNull()) {
-        throw std::runtime_error(QString("Json Parse error : " + docError.errorString()).toStdString());
+        ErrorLogger::getInstance()->logAndExit(QString("Json Parse error : " + docError.errorString()));
     }
 
     //Check if is right format
@@ -70,18 +68,18 @@ void Config::verifyConfigFile(QJsonDocument doc)
 {
 
     if(!doc.isObject()) {
-        throw std::runtime_error("Wrong format : Is not object (HTTPServerAsAppConfig.json)");
+        ErrorLogger::getInstance()->logAndExit("Wrong format : Is not object (HTTPServerAsAppConfig.json)");
     }
 
     if(!doc["name"].isString()) {
-        throw std::runtime_error("Missing name (HTTPServerAsAppConfig.json)");
+        ErrorLogger::getInstance()->logAndExit("Missing name (HTTPServerAsAppConfig.json)");
     }
 
     if(!doc["port"].isDouble()) {
-        throw std::runtime_error("Missing port (HTTPServerAsAppConfig.json)");
+        ErrorLogger::getInstance()->logAndExit("Missing port (HTTPServerAsAppConfig.json)");
     }
 
     if(!doc["command"].isString()) {
-        throw std::runtime_error("Missing command (HTTPServerAsAppConfig.json)");
+        ErrorLogger::getInstance()->logAndExit("Missing command (HTTPServerAsAppConfig.json)");
     }
 }

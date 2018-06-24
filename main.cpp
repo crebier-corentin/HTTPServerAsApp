@@ -2,9 +2,11 @@
 #include "manager.h"
 #include <QApplication>
 
-int main(int argc, char *argv[])
+
+int main(int argc, char* argv[])
 {
     QApplication a(argc, argv);
+    //If DEV show error message in dialog
 
     a.setQuitOnLastWindowClosed(false);
 
