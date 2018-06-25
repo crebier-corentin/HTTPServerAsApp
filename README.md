@@ -31,8 +31,8 @@ Exemple (port = 1234):
 
 # DEV or normal?
 
- Dev : with error message (dialog).  
- Normal : no error message.
+ Dev : console app with server output.
+ Normal : app in background.
  
  To build the dev version :
  `qmake CONFIG+=DEV`
