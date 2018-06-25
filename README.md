@@ -31,7 +31,7 @@ Exemple (port = 1234):
 
 # DEV or normal?
 
- Dev : console app with server output.
+ Dev : console app with server output.  
  Normal : app in background.
  
  To build the dev version :
