@@ -13,6 +13,7 @@
 #include <QUrl>
 #include <QFile>
 #include <QDebug>
+#include <iostream>
 
 class Manager : public QObject
 {

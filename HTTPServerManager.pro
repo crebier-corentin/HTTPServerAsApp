@@ -35,12 +35,14 @@ HEADERS += \
 
 DISTFILES += \
     exemple/server.js \
-    exemple/HTTPServerAsAppConfig.json
+    exemple/HTTPServerAsAppConfig.json \
+    README.md
 
 #Use "CONFIG+=DEV" to enable DEV
 DEV {
 TARGET = HTTPServerManagerDev
 DEFINES += DEV
+CONFIG   += console
 }
 else {
   TARGET = HTTPServerManager

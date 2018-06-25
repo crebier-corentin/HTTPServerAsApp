@@ -61,16 +61,18 @@ void Manager::startServer()
     //Start proccess with port as first argument
     QStringList arg = Config::getInstance()->args;
     arg << QString::number(port);
-    proccess.start(Config::getInstance()->program, arg);
 
-    connect(&proccess, &QProcess::started, [=]() {
-        qDebug() << Config::getInstance()->program;
-        qDebug() << arg;
-    });
+    proccess.start(Config::getInstance()->program, arg);
 
     //Stop proccess when app close
     connect(qApp, &QApplication::aboutToQuit, [=]() {
         proccess.close();
     });
 
+    //If dev copy output to console
+#ifdef DEV
+    connect(&proccess, &QProcess::readyRead, [=]() {
+        std::cout << proccess.readAll().toStdString();
+    });
+#endif
 }
